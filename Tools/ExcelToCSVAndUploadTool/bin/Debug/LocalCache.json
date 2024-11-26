@@ -1,0 +1,18 @@
+{
+  "ExcelFileDir": "G:/WenZi2Project/ResourceFiles/ProjectResources/table/workbook",
+  "OutputCSVFileDir": "E:/Users/admin/Desktop/123456789",
+  "UploadCSVConfigFile": "LoadCSVConfigFile.txt",
+  "FTP_Host": "120.46.158.70",
+  "FTP_Port": 22,
+  "FTP_Username": "root",
+  "FTP_Password": "EgekU5pQfGAD",
+  "FTP_RemotePath": "/data/game/SiShenApks/WenZi2/Android/CSV_Test",
+  "NeedDealExcelFiles": [
+    "cfg_guide_step"
+  ],
+  "NeedUploadFiles": [
+    "E:/Users/admin/Desktop/123456789/cfg_guide_step.csv",
+    "E:/Users/admin/Desktop/123456789/LoadCSVConfigFile.txt"
+  ],
+  "UploadUrl": "http://120.46.158.70:8081/download/WenZi2/Android/CSV"
+}
