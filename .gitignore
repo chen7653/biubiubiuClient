@@ -1,0 +1,7 @@
+*.csproj
+*.sln
+*.vsconfig
+.vs/
+Library/
+Client/BiuBiuBiuProject/UserSettings/EditorUserSettings.asset
+Client/BiuBiuBiuProject/UserSettings/Layouts/default-2021.dwlt
