@@ -31,6 +31,7 @@ public class PlayerJump : ActionBase
         {
             Fsm.Event(mJumpEvent);
             Finish();
+
         }
     }
 }

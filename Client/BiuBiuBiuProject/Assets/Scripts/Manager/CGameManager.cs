@@ -1,37 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CGameManager : MonoBehaviour
+public class CGameManager : SingletonMono<CGameManager>
 {
-    public static CGameManager Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-    }
-
     void Start()
     {
-        
+        Init();
     }
 
 
-    public  bool Init(int  i)
+    public void Init()
     {
         //CProtoclManager.CreateInstance();
         //CServerTime.CreateInstance();
         //UIManager.CreateInstance();
-        CSceneManager.CreateInstance();
-        return true;
+        CSceneManager.Instance.Init();
     }
     public static void CreateGameInstance()
     {
-        //CProtoclManager.CreateInstance();
-        //CServerTime.CreateInstance();
-        //UIManager.CreateInstance();
-        CSceneManager.CreateInstance();
+
     }
+
 }
