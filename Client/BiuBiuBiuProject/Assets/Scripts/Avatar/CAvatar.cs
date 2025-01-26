@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 public abstract class CAvatar<T> : IAvatar where T : CAvatar<T>
 {
+    public int id;
     private int life;
     public int Life { get => life; set => life = value; }
 
@@ -14,7 +12,7 @@ public abstract class CAvatar<T> : IAvatar where T : CAvatar<T>
     private GameObject mBodyRootGo;
     public GameObject BodyRootGo => mBodyRootGo;
 
-    public void InstantiateBodyRootGo(GameObject bodyRootGo)
+    public virtual void InstantiateBodyRootGo(GameObject bodyRootGo)
     {
         mBodyRootGo = GameObject.Instantiate(bodyRootGo);
 
@@ -33,10 +31,20 @@ public abstract class CAvatar<T> : IAvatar where T : CAvatar<T>
 
     public void OnDead()
     {
-        if (life != 0)
+        if (AvatarType == EMAvatarType.Character)
         {
-            life--;
-            if (AvatarType == EMAvatarType.Character) StartGame();
+            if (true)//life != 0)
+            {
+                life--;
+                if (AvatarType == EMAvatarType.Character) StartGame();
+            }
+            else
+            {
+                //¹ÛÕ½?
+                var Follow = CSceneManager.Instance.players.Find((player) => player.id != this.id);
+                CSceneManager.Instance.SetCameraFollow(Follow);
+            }
         }
+
     }
 }

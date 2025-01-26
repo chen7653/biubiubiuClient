@@ -1,6 +1,4 @@
 using Cinemachine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +11,7 @@ public class CSceneManager : SingletonMono<CSceneManager>
     /// <summary>
     /// Íæ¼Ò¼¯ºÏ
     /// </summary>
-    List<Player> players;
+    public List<Player> players;
 
     string mapName;
 
@@ -24,7 +22,7 @@ public class CSceneManager : SingletonMono<CSceneManager>
 
     private void InitData()
     {
-        players =  new List<Player>();
+        players = new List<Player>();
         mapName = "MapGrid_1";
     }
 
@@ -53,12 +51,12 @@ public class CSceneManager : SingletonMono<CSceneManager>
 
     void Start()
     {
-        
+
     }
 
     internal void PlayerStartGame(IAvatar avatar)
     {
-        if (avatar is Player) 
+        if (avatar is Player)
         {
             Player player = avatar as Player;
             if (player.BodyRootGo == null)
@@ -87,8 +85,10 @@ public class CSceneManager : SingletonMono<CSceneManager>
     /// <param name="avatar"></param>
     internal void SetCameraFollow(IAvatar avatar)
     {
-
-        CinemachineBrain cinemachine = Camera.main.GetComponent<CinemachineBrain>();
-        cinemachine.ActiveVirtualCamera.Follow = avatar.BodyRootGo.transform;
+        if (avatar != null)
+        {
+            CinemachineBrain cinemachine = Camera.main.GetComponent<CinemachineBrain>();
+            cinemachine.ActiveVirtualCamera.Follow = avatar.BodyRootGo.transform;
+        }
     }
 }
